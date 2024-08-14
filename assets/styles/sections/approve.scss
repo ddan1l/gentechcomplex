@@ -1,0 +1,62 @@
+.approve {
+	margin: 0px auto;
+	padding: 80px 10px;
+	max-width: 1000px;
+	width: 100%;
+
+	.app-button {
+		margin-top: 60px !important;
+	}
+
+	&__title {
+		font-size: 90px;
+		line-height: 120%;
+		color: var(--white);
+
+		span {
+			font-size: 55px;
+		}
+	}
+
+	&__descr {
+		margin-top: 70px;
+		font-size: 25px;
+		color: var(--white);
+		line-height: 180%;
+		font-family: var(--code-font);
+
+		b {
+			font-weight: 600;
+		}
+
+		p {
+			margin-bottom: 30px;
+		}
+
+		&_small {
+			font-size: 20px;
+
+			p {
+				font-size: 35px;
+				line-height: 160%;
+				margin-top: 100px;
+			}
+		}
+	}
+
+	&__description {
+		font-size: 50px;
+		margin-top: 90px;
+		max-width: 600px;
+		line-height: 140%;
+		color: var(--white)
+	}
+
+	&__image {
+		margin: 100px 30px;
+		display: block;
+		width: 380px;
+		padding: 30px;
+		background-color: #46464636;
+	}
+}

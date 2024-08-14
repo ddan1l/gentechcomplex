@@ -1,0 +1,46 @@
+version: '3.5'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+  mongo-express:
+    image: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=${MONGO_PORT}
+      - ME_CONFIG_MONGODB_AUTH_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - ME_CONFIG_MONGODB_AUTH_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    depends_on:
+      - mongo
+    ports:
+      - 8081:8081
+  node:
+    image: node:18.0
+    container_name: node
+    entrypoint: /bin/sh
+    ports:
+      - ${VITE_PORT}:${VITE_PORT}
+      - ${APP_PORT}:${APP_PORT}
+    working_dir: /srv/app
+    volumes:
+      - type: bind
+        source: ./
+        target: /srv/app
+    tty: true
+    environment:
+      SMTP_TRANSPORT: ${SMTP_TRANSPORT}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_RECIPIENT: ${SMTP_RECIPIENT}
+      PORT: ${APP_PORT}
+      MONGO_DB_NAME: ${MONGO_INITDB_DATABASE}
+      MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongo:${MONGO_PORT}

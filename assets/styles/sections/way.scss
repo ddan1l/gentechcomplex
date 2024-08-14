@@ -1,0 +1,54 @@
+.way-section {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 100vh;
+	margin-bottom: 0;
+
+	@media (max-width: 640px) {
+		display: block;
+		padding-top: 140px;
+
+	}
+
+	.app-title {
+		max-width: 1300px;
+		position: relative;
+		display: block;
+		width: 100%;
+		align-self: flex-end;
+		text-align: right;
+		@media (max-width: 640px) {
+			text-align: left;
+			font-size: 50px;
+			br {
+				display: none;
+			}
+		}
+	}
+
+	.app-quote {
+		justify-self: center;
+		margin-top: 80px;
+	}
+
+	&__bg {
+		position: absolute;
+		margin-top: 20px;
+		margin-left: -60px;
+		filter: brightness(.6);
+		max-width: 50vw;
+		pointer-events: none;
+		@media (max-width: 680px) {
+			max-width: 140vw;
+			filter: brightness(.5);
+			margin-left: 0;
+			right: 0;
+		}
+		@media (max-width: 480px) {
+			max-width: 170vw;
+		}
+	}
+}
+

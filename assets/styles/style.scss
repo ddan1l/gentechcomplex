@@ -1,0 +1,28 @@
+@layer reset, defaults, patterns, components, utilities, overrides;
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=block');
+
+
+:root {
+	--bg-container: hsl(218deg 18% 9%);
+	--bg-columns: hsl(0deg 0% 15%);
+	--bg-card: hsl(198, 13%, 12%);
+
+	--white: hsl(1deg 0% 100%);
+	--gray: hsl(0, 0%, 70%);
+
+	--gradient: linear-gradient(#8307FF 0%, #DB00FF 50%, #FF00D6 100%);
+	--gradient-horizontal: linear-gradient(to right, #8307FF 0%, #DB00FF 50%, #FF00D6 100%);
+
+	--main-font: "Oswald", sans-serif;
+	--code-font: "Fira Code", monospace;
+	--logo-font: "Montserrat", sans-serif;
+
+	--bg-columns-width: 350px;
+	--navbar-width: 120px
+}
+
+@import url('reset.scss') layer(reset);
+@import url('defaults.scss') layer(defaults);
+@import url('sections/style.scss') layer(overrides);
+

@@ -1,0 +1,17 @@
+.app-logo {
+	font-family: var(--logo-font);
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 24px;
+	color: var(--white);
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	transform: rotate(-180deg);
+	text-align: left;
+	margin: 0 auto;
+	align-self: center;
+
+	@media screen and (max-height: 700px) {
+
+	}
+}
