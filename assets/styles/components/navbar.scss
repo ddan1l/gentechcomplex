@@ -1,0 +1,97 @@
+.app-navbar {
+	position: fixed;
+	z-index: 3;
+	left: 0;
+	min-height: 100vh;
+	width: var(--navbar-width);
+	display: grid;
+	grid-template-rows: 120px minmax(150px, 1fr) minmax(300px, 40vh);
+
+	@media (max-width: 640px) {
+		min-height: 50px;
+		background-color: var(--bg-container);
+		grid-template-rows: 1fr;
+		grid-template-columns: 50px 0 1fr;
+		grid-auto-flow: dense;
+		width: 100vw;
+		padding-left: 20px;
+		height: 80px;
+		align-items: center;
+
+		.app-logo {
+			transform: none;
+			text-orientation: unset;
+			writing-mode: unset;
+			margin-right: 30px;
+			font-size: 20px;
+		}
+
+		.circled-graph {
+			margin-top: 0;
+			display: none;
+		}
+	}
+
+	&__item {
+		container-type: inline-size;
+		display: flex;
+		transition: .2s;
+		transition-delay: .7s;
+
+		&_center {
+			align-items: center;
+		}
+	}
+
+	&.active {
+		.app-navbar {
+			&__item {
+				transition-delay: 0s;
+
+				&:nth-child(2), &:nth-child(3) {
+					opacity: 0;
+				}
+			}
+		}
+	}
+}
+
+.circled-graph {
+	width: 72px;
+	height: 72px;
+	margin: 20px auto 0;
+	position: relative;
+
+	.circled-graph-text {
+		color: var(--white);
+		font-size: 28px;
+		font-weight: 500;
+		line-height: 160%;
+		font-family: var(--code-font);
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		white-space: nowrap;
+	}
+
+	.circled-graph-path {
+		z-index: 5;
+		position: absolute;
+		transform: rotate(0deg);
+		left: 0;
+		top: 0;
+	}
+
+	.circled-graph-arc {
+		filter: drop-shadow(0 4px 4px rgba(#000000, 1));
+	}
+
+	.circled-graph-canvas {
+		position: absolute;
+		transform: rotate(0deg);
+		left: 0;
+		top: 0;
+	}
+}

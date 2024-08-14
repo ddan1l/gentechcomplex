@@ -1,0 +1,65 @@
+.app-container {
+	flex: 1;
+	max-width: 1920px;
+	margin: 0 auto;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+
+.app-body {
+	position: relative;
+	display: flex;
+	font-family: var(--main-font);
+	background-color: var(--bg-container);
+	max-width: 100vw;
+}
+
+.bg-columns {
+	width: 100%;
+	max-width: 100vw;
+	overflow: hidden;
+	position: fixed;
+	z-index: -1;
+	height: 100vh;
+	display: grid;
+	background-color: var(--bg-container);
+	grid-template-columns: calc(var(--navbar-width) + 1px) repeat(12, var(--bg-columns-width));
+
+	.bg-column {
+		border-right: 1px solid var(--bg-columns);
+	}
+}
+
+.scroll-container {
+	overflow-y: auto;
+	max-height: 100vh;
+
+	&_hidden {
+
+
+		&::-webkit-scrollbar {
+			width: 0px;
+		}
+
+		/* Track */
+		&::-webkit-scrollbar-track {
+			background: transparent;
+			border-radius: 10px;
+		}
+
+		/* Handle */
+		&::-webkit-scrollbar-thumb {
+
+			border-radius: 10px;
+		}
+
+		/* Handle on hover */
+		&::-webkit-scrollbar-thumb:hover {
+			background: transparent;
+		}
+
+	}
+}

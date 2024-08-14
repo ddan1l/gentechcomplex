@@ -1,0 +1,46 @@
+.app-button {
+	height: 70px;
+	cursor: pointer;
+	background: var(--gradient-horizontal);
+	border: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 18px;
+	padding: 0 50px;
+	position: relative;
+	margin-top: 30px;
+	font-weight: 500;
+	font-family: var(--code-font);
+	letter-spacing: 1px;
+	transition: .2s;
+
+	&:after {
+		content: '';
+		position: absolute;
+		pointer-events: none;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		background: linear-gradient(to right, #8307FF 0%, #8307FF 50%, #DB00FF 50%, #FF00D6 100%);
+		z-index: -1;
+		transition: .2s;
+		opacity: 0;
+
+	}
+
+	&:active {
+		transform: scale(.98);
+	}
+
+	&:hover {
+		&:after {
+			filter: blur(72px);
+			opacity: 1;
+		}
+	}
+
+	&_full {
+		width: 100%;
+	}
+}

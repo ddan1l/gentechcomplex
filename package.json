@@ -1,0 +1,24 @@
+{
+  "name": "gentech",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "nodemon main.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3",
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "formidable": "^3.5.1",
+    "mongodb": "^6.7.0",
+    "nodemailer": "^6.9.13",
+    "sass": "^1.71.1",
+    "uuid": "^10.0.0"
+  }
+}

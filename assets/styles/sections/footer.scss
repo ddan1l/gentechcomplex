@@ -1,0 +1,48 @@
+.app-footer {
+	min-height: 55px;
+	padding-top: 80px;
+	padding-bottom: 95px;
+	background-color: hsl(198deg 13% 12% / 40%);
+	border-top: 1px solid hsl(198deg 7% 29%);
+
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	grid-gap: 75px;
+	line-height: 200%;
+	font-weight: 400;
+	font-family: var(--code-font);
+	color: var(--white);
+
+	.footer-col {
+		display: flex;
+		flex-direction: column;
+
+		&:first-child {
+			font-size: 22px;
+			grid-gap: 45px;
+			width: 50%;
+		}
+
+		&:last-child {
+			font-size: 22px;
+			grid-gap: 45px;
+			width: 50%;
+		}
+	}
+
+	@media (max-width: 1206px) {
+		flex-direction: column;
+		height: max-content;
+		padding: 25px;
+		grid-gap: 25px;
+	}
+
+	a {
+		text-underline-offset: 5px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
