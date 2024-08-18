@@ -1,9 +1,10 @@
 import path from "node:path"
 
-import {handleApprove} from "./approve.js";
-import {handleAsset} from "./asset.js";
-import {handleSubmit} from "./submit.js";
-import {handleWaiting} from "./waiting.js";
+import { handleApprove } from "./approve.js";
+import { handleAsset } from "./asset.js";
+import { handleSubmit } from "./submit.js";
+import { handleWaiting } from "./waiting.js";
+import { handlePay } from "./pay.js";
 
 
 const handlers = {
@@ -11,13 +12,14 @@ const handlers = {
         '/submit': handleSubmit
     },
     GET: {
-        '/about': handleAsset.bind({asset: 'about.html'}),
-        '/personal-processing': handleAsset.bind({asset: 'personal-processing.html'}),
-        '/privacy-policy': handleAsset.bind({asset: 'privacy-policy.html'}),
-        '/public-offer': handleAsset.bind({asset: 'public-offer.html'}),
+        '/about': handleAsset.bind({ asset: 'about.html' }),
+        '/personal-processing': handleAsset.bind({ asset: 'personal-processing.html' }),
+        '/privacy-policy': handleAsset.bind({ asset: 'privacy-policy.html' }),
+        '/public-offer': handleAsset.bind({ asset: 'public-offer.html' }),
         '/approve': handleApprove,
         '/waiting': handleWaiting,
-        '/': handleAsset.bind({asset: 'index.html'}),
+        '/pay': handlePay,
+        '/': handleAsset.bind({ asset: 'index.html' }),
 
     }
 }

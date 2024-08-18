@@ -1,5 +1,5 @@
-import {resolve} from 'path'
-import {defineConfig} from "vite";
+import { resolve } from 'path'
+import { defineConfig } from "vite";
 
 export default defineConfig({
     server: {
@@ -14,6 +14,7 @@ export default defineConfig({
             input: {
                 waiting: resolve(__dirname, 'pages/waiting.html'),
                 about: resolve(__dirname, 'pages/about.html'),
+                pay: resolve(__dirname, 'pages/pay.html'),
                 main: resolve(__dirname, 'pages/index.html'),
                 approve: resolve(__dirname, 'pages/approve.html'),
                 policy: resolve(__dirname, 'pages/privacy-policy.html'),

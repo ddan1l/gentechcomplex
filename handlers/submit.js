@@ -1,14 +1,17 @@
 import formidable from "formidable";
 import fs from "fs";
-import {v4} from "uuid";
+import { v4 } from "uuid";
 
 import db from "../services/db.js";
-import {sendMail} from "../services/smtp.js";
+import { sendMail } from "../services/smtp.js";
+
+import orderStatus from "./constants/orderStatus.js";
+import productPrice from "./constants/productPrice.js";
 
 const submitTemplate = fs.readFileSync('templates/submit.html').toString()
 
 
-const createTemplate = async ({email, phone, address, setsCount, fullName, href}) => {
+const createTemplate = async ({ email, phone, address, setsCount, fullName, href }) => {
     return submitTemplate
         .replaceAll(`{email}`, email)
         .replaceAll(`{phone}`, phone)
@@ -25,14 +28,15 @@ export const handleSubmit = async (request, response) => {
         fields[field] = fields[field][0]
     }
 
-    const {email, phone, setsCount, fullName, address} = fields
+    const { email, phone, setsCount, fullName, address } = fields
+
+    console.log(fields);
+
 
     const uuid = v4()
 
-    const href = `${request.headers.origin}/approve?uuid=${uuid}`
-
-
-    const html = await createTemplate({email, phone, address, setsCount: setsCount || 1, fullName, href})
+    const href = `${process.env.APP_URL}/approve?uuid=${uuid}`
+    const html = await createTemplate({ email, phone, address, setsCount: setsCount || 1, fullName, href })
 
     try {
         const applications = db().collection('applications')
@@ -44,23 +48,25 @@ export const handleSubmit = async (request, response) => {
             fullName,
             setsCount,
             address,
-            statusId: 1,
+            statusId: orderStatus.CREATED,
             paymentId: null,
             createdAt: new Date(),
+            updatedAt: new Date(),
+            amount: (parseInt(setsCount) || 1) * productPrice
         });
 
 
         if (insertResult) {
-            sendMail({to: process.env.SMTP_RECIPIENT, subject: 'Новый заказ', html})
+            sendMail({ to: process.env.SMTP_RECIPIENT, subject: 'Новый заказ', html })
         }
 
-        response.writeHead(302, {Location: `/waiting?uuid=${uuid}`})
+        response.writeHead(302, { Location: `/waiting?uuid=${uuid}` })
         response.end()
 
     } catch (e) {
         console.log(e)
 
-        response.writeHead(404, {"Content-Type": "text/plain"});
-        response.end("Something went wrong");
+        response.writeHead(404, { "Content-Type": "text/plain" });
+        response.end("Smth went wrong");
     }
 }

@@ -33,7 +33,7 @@ export function handleAsset(request, response) {
             return;
         }
 
-        response.writeHead(404, {"Content-Type": "text/plain"});
+        response.writeHead(404, { "Content-Type": "text/plain" });
         response.end("Not found");
     });
 }

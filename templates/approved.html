@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="padding: 30px 20px; box-sizing: border-box; font-family: 'Arial',serif; background-color: #21282b;"
+        class="template">
+        <h1 style="text-align: center; margin-bottom: 30px; color: #fff;">Ваш заказ одобрен</h1>
+        <div style="max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #ffff; margin-bottom: 15px; font-weight: normal">Кол-во наборов:
+                <b>{setsCount}</b>
+            </h2>
+            <h2 style="color: #ffff; margin-bottom: 15px; font-weight: normal">Итоговая сумма:
+                <b>{amount}₽</b>
+            </h2>
+        </div>
+        <div style="width: 100%; max-width: 600px; display: table; text-align: center; height: 50px; margin: 35px auto 0;"
+            class="btn-wrapper">
+            <a style="
+                cursor: pointer;
+                text-decoration: none;
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+                background: linear-gradient(to right, #8307ff 0%, #db00ff 50%, #ff00d6 100%);
+                border: none;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 500;
+                box-sizing: border-box;
+                text-transform: uppercase;
+            " class="btn" target="_blank" href="{href}">
+                Оплатить
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

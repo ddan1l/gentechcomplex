@@ -39,6 +39,7 @@ services:
     environment:
       SMTP_TRANSPORT: ${SMTP_TRANSPORT}
       SMTP_USER: ${SMTP_USER}
+      APP_URL: ${APP_URL}
       SMTP_PASS: ${SMTP_PASS}
       SMTP_RECIPIENT: ${SMTP_RECIPIENT}
       PORT: ${APP_PORT}
