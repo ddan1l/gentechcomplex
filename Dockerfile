@@ -24,7 +24,6 @@ WORKDIR /app
 
 RUN /app/node_modules/.bin/vite build
 
-#EXPOSE 3000
 
 CMD [ "node", "main.js" ]
 
