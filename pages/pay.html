@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Оплата заказа</title>
+
+    <link href="/assets/site/apple-touch-icon.png" rel="apple-touch-icon" sizes="172x172">
+    <link href="/assets/site/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/assets/site/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="/assets/site/site.webmanifest" rel="manifest">
+    <link href="/assets/styles/style.scss" rel="stylesheet">
+    <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css">
+</head>
+
+<body class="app-body">
+    <div class="pay">
+        <div class="pay__container">
+            <h3 class="pay__title">
+                Оплата заказа
+            </h3>
+
+            <br>
+
+            <br>
+
+            <!--  -->
+            <form class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post"
+                accept-charset="utf-8">
+
+                <div class="ym-products">
+                    <div class="app-description  app-description_code">Товары:</div>
+
+                    <div class="ym-product">
+                        <div class="ym-product-line app-description app-description_code">
+                            <span class="ym-product-description">
+                                <span class="">{count} × </span>Набор РНК-карт
+                            </span>
+                            <span class="ym-product-price" data-price="{price}" data-id="453" data-count="{count}">
+                                {amount_formated}
+                            </span>
+                        </div>
+
+                        <input disabled="" type="hidden" name="text" value="Набор РНК-карт">
+                        <input disabled="" type="hidden" name="price" value="{price}">
+                        <input disabled="" type="hidden" name="quantity" value="{count}">
+                        <input disabled="" type="hidden" name="paymentSubjectType" value="commodity">
+                        <input disabled="" type="hidden" name="paymentMethodType" value="full_prepayment">
+                        <input disabled="" type="hidden" name="tax" value="1">
+                    </div>
+                </div>
+                <input value="" type="hidden" name="ym_merchant_receipt">
+
+                <div class="ym-customer-info">
+                    <div class="app-description app-description_code">О покупателе:</div>
+
+                    <div class="input-container">
+
+                        <input autocomplete="email" value="{email}" class="input-container__input" id="email"
+                            name="email" placeholder="Телефон или Email для чека" required type="text">
+                    </div>
+
+                </div>
+
+
+                <div class="ym-payment-btn-block">
+                    <div class="ym-input-icon-rub ym-display-none">
+                        <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input"
+                            type="number" step="any" value="{price}">
+                    </div>
+                    <button data-text="Оплатить" class="app-button ym-btn-pay ym-result-price"><span
+                            class="ym-text-crop">Оплатить</span> <span class="ym-price-output">
+                            {price_formated}</span></button>
+
+                    <img class="ym-logo" src="/assets/images/ym-logo.svg" alt="">
+                </div>
+                <input name="shopId" type="hidden" value="436225">
+            </form>
+            <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js"></script>
+
+        </div>
+    </div>
+    <div class="bg-columns">
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+        <div class="bg-column"></div>
+    </div>
+</body>
+
+</html>
