@@ -33,6 +33,34 @@
 		margin-top: 80px;
 	}
 
+	.flex-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@media (max-width: 1450px) {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+	}
+
+	.logo-container {
+		align-self: flex-end;
+		grid-gap: 40px;
+		padding-bottom: 30px;
+		display: flex;
+		align-items: center;
+		@media (max-width: 1450px) {
+			justify-content: flex-start;
+			align-items: flex-start;
+			align-self: flex-start;
+			margin-top: 50px;
+			grid-gap: 50px;
+			margin-left: 30px;
+			padding-bottom: 0;
+		}
+	}
+
 	&__bg {
 		position: absolute;
 		margin-top: 20px;
