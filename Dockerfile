@@ -24,6 +24,5 @@ WORKDIR /app
 
 RUN /app/node_modules/.bin/vite build
 
-
 CMD [ "node", "main.js" ]
 
