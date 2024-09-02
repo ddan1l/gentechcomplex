@@ -16,6 +16,8 @@
 		max-width: 1300px;
 		position: relative;
 		display: block;
+		max-height: 430px;
+		overflow: hidden;
 		width: 100%;
 		align-self: flex-end;
 		text-align: right;
@@ -25,6 +27,7 @@
 			br {
 				display: none;
 			}
+			max-height: 350px;
 		}
 	}
 
@@ -50,6 +53,7 @@
 		padding-bottom: 30px;
 		display: flex;
 		align-items: center;
+		position: relative;
 		@media (max-width: 1450px) {
 			justify-content: flex-start;
 			align-items: flex-start;
