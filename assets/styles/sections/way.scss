@@ -33,6 +33,20 @@
 		margin-top: 80px;
 	}
 
+	.flex-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo-container {
+		align-self: flex-end;
+		grid-gap: 40px;
+		padding-bottom: 30px;
+		display: flex;
+		align-items: center;
+	}
+
 	&__bg {
 		position: absolute;
 		margin-top: 20px;
